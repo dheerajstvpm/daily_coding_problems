@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "tsc && cd dest && node"
+  },
   "dependencies": {
     "typescript": "^5.4.5"
   }
