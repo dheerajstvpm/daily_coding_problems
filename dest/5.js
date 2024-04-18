@@ -11,4 +11,17 @@ def cons(a, b):
         return f(a, b)
     return pair
 Implement car and cdr.
- */ 
+ */
+{
+    const cons = (a, b) => {
+        return [a, b];
+    };
+    const car = (pair) => {
+        return pair[0];
+    };
+    const cdr = (pair) => {
+        return pair[1];
+    };
+    console.log(car(cons('first', 'second')));
+    console.log(cdr(cons('first', 'second')));
+}

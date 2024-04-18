@@ -11,3 +11,18 @@ def cons(a, b):
     return pair
 Implement car and cdr.
  */
+{
+    const cons = (a: unknown, b: unknown) => {
+        return [a, b];
+    }
+    const car = (pair: unknown[]) => {
+        return pair[0];
+    }
+    const cdr = (pair: unknown[]) => {
+        return pair[1];
+    }
+
+    console.log(car(cons('first', 'second')));
+    console.log(cdr(cons('first', 'second')));
+
+}
