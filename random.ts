@@ -27,7 +27,6 @@
 
     type TPlanet = keyof typeof earthYears;
 
-    // export 
     function age(planet: TPlanet, seconds: number): number {
         return (seconds / 31557600) * earthYears[planet];
     }
