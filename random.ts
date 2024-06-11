@@ -31,5 +31,5 @@
         return (seconds / 31557600) * earthYears[planet];
     }
 
-    console.log(age('Jupiter', 1000000000));
+    console.log(age('Venus', 1000000000));
 }
