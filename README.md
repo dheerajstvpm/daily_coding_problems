@@ -1,1 +1,1 @@
-Questions from https://www.dailycodingproblem.com/
+Questions to code daily
