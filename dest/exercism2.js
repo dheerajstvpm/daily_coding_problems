@@ -1,3 +1,4 @@
+"use strict";
 /**
  * If you want to build something using a Raspberry Pi, you'll probably use resistors. For this exercise, you need to know two things about them:
 
@@ -28,29 +29,18 @@ to list the different band colors
 Mnemonics map the colors to the numbers, that, when stored as an array, happen to map to their index in the array: Better Be Right Or Your Great Big Values Go Wrong.
  */
 {
-  const COLORS = Object.freeze([
-    "black",
-    "brown",
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "violet",
-    "grey",
-    "white",
-  ]);
-
-  type TColor = (typeof COLORS)[number];
-
-  type TIndices<T extends readonly unknown[]> = Exclude<
-    Partial<T>["length"],
-    T["length"]
-  >;
-
-  type TColorIndex = TIndices<typeof COLORS>;
-
-  const colorCode = (color: TColor) => COLORS.indexOf(color) as TColorIndex;
-
-  console.log(colorCode("blue"));
+    const COLORS = Object.freeze([
+        "black",
+        "brown",
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "violet",
+        "grey",
+        "white",
+    ]);
+    const colorCode = (color) => COLORS.indexOf(color);
+    console.log(colorCode("blue"));
 }
