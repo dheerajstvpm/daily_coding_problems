@@ -6,6 +6,9 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.fzf
+    pkgs.bat
+    pkgs.ripgrep
     # pkgs.go
     # pkgs.python311
     # pkgs.python311Packages.pip
@@ -18,7 +21,11 @@
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      # "vscodevim.vim"
+      "vscodevim.vim"
+      "esbenp"
+      "dbaeumer"
+      "usernamehw"
+      "TomRijndorp"
     ];
 
     # Enable previews
