@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "pnpm": "npm i -g pnpm@latest && pnpm i",
     "start": "tsc && cd js-files && node"
   },
   "dependencies": {

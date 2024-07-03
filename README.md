@@ -1,7 +1,7 @@
 # Getting started
 
-1. Use "pnpm i" to install dependencies.
-2. Use "pnpm start -- *filename*" to execute ts file.
+1. Use "npm run pnpm" to install dependencies.
+2. Use "npm start -- *filename*" to execute ts file.
 
 
 ### Function Dos and Don'ts
