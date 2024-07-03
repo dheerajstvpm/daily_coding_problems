@@ -1,8 +1,10 @@
-Use "pnpm i" to install dependencies.
-Use "pnpm start -- *filename*" to execute a ts file.
+## Getting started
+
+1. Use "pnpm i" to install dependencies.
+2. Use "pnpm start -- *filename*" to execute a ts file.
 
 
-Function Dos and Don'ts
+### Function Dos and Don'ts
 
 Don't use switch in methods when there are No Common processing logic.  Here's a perfect example of where we should have 3 separate functions rather than one with a switch block in it.  First of all, we are combining 3 things and then split them up again inside the method, that's totally unnecessary.  Having 3 different methods give the code more context when someone has to read it, the reader won't need to know the implementation details of the method to see what it will do and should be able to tell by the method name.
 ```
@@ -36,7 +38,7 @@ onDuplicateBatchActionClicked(actionType: fromBatchView.DuplicateBatchAction) {
 }
 ```
 
-Constructors Dos and Don'ts
+### Parameter Dos and Don'ts
 
 Don't make special type just for a few parameters - This hides what is actually needed for the constructor.
 
@@ -62,7 +64,7 @@ export class Rate implements Action {
 }
 ```
 
-If / Else Statements Dos and Don'ts
+### If / Else Statements Dos and Don'ts
 
 Don't put error handling code in the else block.  When you can take care of the error condition easily , get it out of the way ASAP by putting it in the if block and return or throw on the error condition.  This way, you do not have to put your normal code flow inside the if block.
 
@@ -185,7 +187,7 @@ if (shouldHireCrew(nextTask, i9VerifyDate, employmentStatus)) {
 return next();
 ```
 
-Start taking a more Functional Approach
+### Start taking a more Functional Approach
 
 Don't modify the object, pass in as parameter directly
 
@@ -225,7 +227,7 @@ Check Arguments before using them
 If a function is called with invalid required parameters, it shouldn't simply return null, or call the callback with an error object.  Of then, when the required parameters are null/undefined, it is caused by the caller function did something wrong and send the invalid values into the method. If we simply return null or return the callback with error object, it would take longer to find that the caller method has a bug in it.  Throwing an exception in those cases could help us find the issue during testing phase and we can fix the bug ASAP.
 
 
-Anti Patterns
+### Anti Patterns
 
 Fake Reuse
 
