@@ -1,7 +1,7 @@
-## Getting started
+# Getting started
 
 1. Use "pnpm i" to install dependencies.
-2. Use "pnpm start -- *filename*" to execute a ts file.
+2. Use "pnpm start -- *filename*" to execute ts file.
 
 
 ### Function Dos and Don'ts
@@ -38,6 +38,7 @@ onDuplicateBatchActionClicked(actionType: fromBatchView.DuplicateBatchAction) {
 }
 ```
 
+
 ### Parameter Dos and Don'ts
 
 Don't make special type just for a few parameters - This hides what is actually needed for the constructor.
@@ -63,6 +64,7 @@ export class Rate implements Action {
   constructor(public shiftId: string, public fieldName: string, public value: string|number) {}
 }
 ```
+
 
 ### If / Else Statements Dos and Don'ts
 
@@ -186,6 +188,7 @@ if (shouldHireCrew(nextTask, i9VerifyDate, employmentStatus)) {
 }
 return next();
 ```
+
 
 ### Start taking a more Functional Approach
 
