@@ -3,6 +3,7 @@ Use "pnpm start -- *filename*" to execute a ts file.
 
 
 Function Dos and Don'ts
+
 Don't use switch in methods when there are No Common processing logic.  Here's a perfect example of where we should have 3 separate functions rather than one with a switch block in it.  First of all, we are combining 3 things and then split them up again inside the method, that's totally unnecessary.  Having 3 different methods give the code more context when someone has to read it, the reader won't need to know the implementation details of the method to see what it will do and should be able to tell by the method name.
 
 onDuplicateBatchActionClicked(actionType: fromBatchView.DuplicateBatchAction) {
@@ -36,6 +37,7 @@ onDuplicateBatchActionClicked(actionType: fromBatchView.DuplicateBatchAction) {
  
 
 Constructors Dos and Don'ts
+
 Don't make special type just for a few parameters - This hides what is actually needed for the constructor.
 
 Don't try to generalize parameter types - In this specific case, we are trying to fit square into circle.  This is trying to use one parameter type for multiple different actions that takes different values.  The reason why we use Typescript is to have strong typing, so don't make weak types like this.
@@ -126,7 +128,7 @@ if(error) {
 }
 return next(null, result);
 
-Do always return - I don't like this adding code that's not necessary, but I also don't want to keep having to check our entire code base for this issue again :)
+Do always return
 
 This method doesn't need a return on the last line, but do it anyways,  such that you won't forget the return inside the if.
 
@@ -193,14 +195,19 @@ function mapShowSendButtonOnSmartCard(users) {
 }
 
 
-Do prefer passing arguments instead of instance variables (i.e. prefer Pure Functions).  There are only a few cases where instance variable makes sense.  Situations like we have a object that encapsulates a piece of data and never expose it to be written.  Most of the time methods should simply accept data as parameters and return a value.
+Do prefer passing arguments instead of instance variables (i.e. prefer Pure Functions).  
+
+There are only a few cases where instance variable makes sense.  Situations like we have a object that encapsulates a piece of data and never expose it to be written.  Most of the time methods should simply accept data as parameters and return a value.
 
 Check Arguments before using them
+
 If a function is called with invalid required parameters, it shouldn't simply return null, or call the callback with an error object.  Of then, when the required parameters are null/undefined, it is caused by the caller function did something wrong and send the invalid values into the method. If we simply return null or return the callback with error object, it would take longer to find that the caller method has a bug in it.  Throwing an exception in those cases could help us find the issue during testing phase and we can fix the bug ASAP.
 
 
 Anti Patterns
+
 Fake Reuse
+
 Using the same function to handle "Similar" things - For example, in the Batch Browse page, where we use a Single onActionMenuClicked function to handle different action menu buttons click.
 
 onActionMenuClicked(actionType: fromBatchView.BatchSummaryActions) {
@@ -233,4 +240,5 @@ onActionMenuClicked(actionType: fromBatchView.BatchSummaryActions) {
         throw  Error('Invalid Batch Action');
     }
   }
+  
 On the template, all actions on the action menu will call the onActionMenuClick method on the template.  But this function uses a Switch block to split up the actions again. There is absolutely no reuse at all.  This is an example Fake/Bad Reuse.  Rather than having each action menu button call the same function, call different functions.  If you see this in the code, and there are no refactor card opened for it, please report it with a new Refactor Card.  Please use label "Technical_Debt" on the refactor card.
