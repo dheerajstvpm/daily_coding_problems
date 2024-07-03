@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "tsc && cd dest && node"
+    "start": "tsc && cd js-files && node"
   },
   "dependencies": {
     "typescript": "^5.4.5"
